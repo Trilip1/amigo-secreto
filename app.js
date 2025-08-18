@@ -2,15 +2,21 @@
 let listaAmigos = [];
 
 function adicionarAmigo() {
+    mostrarTexto('h2', 'Digite o nome dos seus amigos');
     let amigos = document.querySelector('input').value;
-    if (amigos !== "" && amigos !== undefined) {
+    amigos = amigos.charAt(0).toUpperCase() + amigos.slice(1);
+    if (amigos !== "" && amigos !== undefined && typeof(amigos) == Number) {
+        if (listaAmigos.includes(amigos)) {
+            limparTexto();
+            mostrarTexto('h2', 'Esse nome já está na lista!');
+            return;
+        }
         listaAmigos.push(amigos);
         console.log(listaAmigos);
         limparTexto();
     } else {
-        return;
-    }
-
+        mostrarTexto('h2', 'Tem que ser um nome de verdade!');
+    }  
 }
 
 function limparTexto() {
