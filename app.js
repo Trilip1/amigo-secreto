@@ -1,6 +1,7 @@
 
 let listaAmigos = [];
 
+
 function adicionarAmigo() {
     mostrarTexto('h2', 'Digite o nome dos seus amigos');
     let amigos = document.querySelector('input').value;
@@ -12,7 +13,9 @@ function adicionarAmigo() {
             return; 
         }
         listaAmigos.push(amigos);
-        console.log(listaAmigos);
+        let listaAmigos2 = listaAmigos.join('<br>')
+        adicionarAmigosDaLista('listaAmigos', listaAmigos2);
+        console.log(listaAmigos2);
         limparTexto();
     } else {
         mostrarTexto('h2', 'Tem que ser um nome de verdade!');
@@ -24,6 +27,11 @@ function limparTexto() {
     amigos.value = '';
 }
 
+function adicionarAmigosDaLista(elementID, texto) {
+    let campoLista = document.getElementById(elementID);
+    campoLista.innerHTML = texto;
+}
+
 function mostrarTexto(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
@@ -32,3 +40,4 @@ function mostrarTexto(tag, texto) {
 function sortearAmigo() {
 
 }
+
