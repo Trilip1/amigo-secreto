@@ -5,11 +5,11 @@ function adicionarAmigo() {
     mostrarTexto('h2', 'Digite o nome dos seus amigos');
     let amigos = document.querySelector('input').value;
     amigos = amigos.charAt(0).toUpperCase() + amigos.slice(1);
-    if (amigos !== "" && amigos !== undefined && typeof(amigos) == Number) {
+    if (amigos !== "" && amigos !== undefined && isNaN(amigos)) {
         if (listaAmigos.includes(amigos)) {
             limparTexto();
             mostrarTexto('h2', 'Esse nome já está na lista!');
-            return;
+            return; 
         }
         listaAmigos.push(amigos);
         console.log(listaAmigos);
