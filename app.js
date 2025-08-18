@@ -64,10 +64,17 @@ function mostrarTexto(tag, texto) {
 
 // função que sorteia os índices do array com base em uma geração de números aleatórios limitados ao tamanho da array
 function sortearAmigo() {
-    const numeroIndice = gerarNumero();
-    const escolhido = listaAmigos[numeroIndice];
-    const mensagemFinal = `O amigo secreto sorteado é: ${escolhido}`;
-    adicionarTextoPorID('resultado', mensagemFinal);
+    if (listaAmigos.length === 0) {
+        adicionarTextoPorID('paragrafo', 'Adicione pelo menos um amigo para fazer o sorteio!');
+        return;
+    } else {
+        const numeroIndice = gerarNumero();
+        const escolhido = listaAmigos[numeroIndice];
+        const mensagemFinal = `O amigo secreto sorteado é: ${escolhido}`;
+        adicionarTextoPorID('resultado', mensagemFinal);
+        adicionarTextoPorID('listaAmigos', '');
+        listaAmigos = [];
+    }
 }
 
 // Função pra gerar um número aleatório de acordo com o tamanho da array pra sortear os elementos dentro dela.
