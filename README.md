@@ -22,9 +22,3 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 - **JavaScript**
 
 ---
-
-## ⚙️ Instalação e Uso
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/amigo-secreto.git
